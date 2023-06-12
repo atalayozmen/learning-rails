@@ -12,9 +12,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    puts "start"
-    print(article_params)
-    puts "end"
     @article = Article.new(article_params)
 
     if @article.save
@@ -47,7 +44,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :body)
-
+      params.require(:article).permit(:title, :body, :status)
     end
 end
